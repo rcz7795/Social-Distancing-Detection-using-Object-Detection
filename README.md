@@ -1,69 +1,47 @@
 # Social-Distancing-Detection-using-YOLOv3
 
-# Sentiment-Analysis-of-London-Hilton-Hotel-Reviews
+![CV](https://img.shields.io/badge/CV-Object_Detection-blue.svg) 
 
-![NLP](https://img.shields.io/badge/NLP-Sentiment_Analysis-blue.svg) 
-
-![logo](Snips/Hotel_logo.jpg)
+![logo](Snips/Logo.jpg)
 
 ## Business Objectives :
 
-Online Hilton Hotel reviews are currently found on tripadvisor, trustpilot, and expedia. The majority of reviewers gave a score between 3 and 5, so if a new customer browses online reviews on any of the previously mentioned review sites, they may consider booking a room at the Hilton.
+In the fight against the Covid-19 pandemic, social distancing, contactless meetings, wearing mask all are proven to be very effective measure to slow down the spread of the virus. social distancing is the one of the best way to prevent from virus. people asked to keep distance of at least 6 feetform other to stop the spread of a virus.
 
-Opinions are shared constantly on social media platforms, and are read by their followers. The knowledge, of what these followers think about our hotel, from reading these online posts, could help us better understand the general public's perception of our hotel.
+Social distancing, also called physical distancing, is a measures intended to prevent the spread of a contagious disease by maintaining a physical distance between people.
 
-So by using Sentiment Analysis on existing hotel reviews, I created a model that can quantify on a scale of 1-5, how the feels about the hotel, and as a result, also how the readers think about it. If a review classifies to be less than a score of 3, the review could be looked into, find out why they had a negative opinion, and in return seek recommendations and fix the problem.
+In this project, the objecctive is to build an Object Detection System to detect persons and calculate the distance between them and detect social distance violations.
 
 ## Data Collection :
 
-The data was downloaded from Github.
+The data was taken from google for testing.
 
-The 5 Hilton hotels with the highest number of reviews were chosen to scrape data: London Gatwick Airport, London Metropole, London Euston, London Croydon, and London - West End. 
-
-Between these 5 hotels there were 17538 reviews, from which a sample of 5000 reviews was scraped for analysis.
-
-The root URL used was : www.tripadvisor.co.uk
+We would be using the available libraries like OpenCV and pre-trained Object Detection model like YOLO v3.
 
 ## Modelling :
 
 The following modelling approach was used in the project:
 
-1. Cleaning the raw data
-2. Applying pre-processing to extract relevant tokens.
-3. Apply TF-IDF vectorization to predict the ratings using ML Models.
-4. Apply ANNs
-5. Applying LSTMs
+1. Load the COCO dataset pre-trained YOLO v3 weights
+2. Detect Person in the image
+3. Calculate the distance between every detected persons
+4. Mark the detections
 
 The detailed analysis and model creation can be found in the .ipynb file. 
 
-## Result :
+## Results :
 
 Some of the test images are given below.
 
-The results from Classical ML Models are as below:
-![test](Snips/Result_1.JPG)
+![test](Snips/1.JPG)
 
-The Logistic Regression turns out to be the best model and the confusion matrix using it is as follows:
-![test](Snips/CM_1.JPG)
+## Conclusions :
 
-The results from ANNs are as follows:
-![test](Snips/Result_2.JPG)
-![test](Snips/CM_2.JPG)
-
-The results from LSTMs are as follows:
-![test](Snips/Result_3.JPG)
-![test](Snips/CM_3.JPG)
-
-
-## Conclusion :
-
-After testing various ML models, ANNs and LSTMS, the ANN model using the test data and achieved an accuracy of 0.54 which is better than the Logistic Regression model and Bidirectional LSTMs.
-
-The error is more contained within adjacent scores with the ANN model. Almost zero confusion between extreme scores 1 and 5, and minimal confusion with scores 2 and 4. Although a score of 3 can be harder to predict, there is definitely an improvement from the Stacking model. Around 97% of the time the model predicts at least the adjacent score to the actual score.
+We were able to build a Social Distancing System using OpenCV and YoLo v3 model. Even though it works fairly well, a lot of space is available for improvement. The fps is fairly low in this project but we can increase it using other SOTA techniques.
 
 ### Future Scope:
-  - Use a bigger training dataset
-  - Try a deeper neural network
-  - Reduce complexity of classification to binary classification
-  - Implement other pre-made vectorisation methods — word2vec or GloVe
-  - Using Transformers and Bert Models
+
+Although this project is cool, it has a few limitations,
+  - This project does not take into account the camera perspective.
+  - It does not leverage a proper camera calibration (Distances are not measure accurate).
+  - We can use other SOTA models like SSD, SSDLite to get better fps rendering.
