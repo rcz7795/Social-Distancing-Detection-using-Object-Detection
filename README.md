@@ -1,4 +1,4 @@
-# Social-Distancing-Detection-using-YOLOv3
+# Social-Distancing-Detection-using-YOLO v3
 
 ![CV](https://img.shields.io/badge/CV-Object_Detection-blue.svg) 
 
