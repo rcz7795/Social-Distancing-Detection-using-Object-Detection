@@ -1,4 +1,4 @@
-# Social-Distancing-Detection-using-YOLO v3
+# Social-Distancing-Detection-using-Object-Detection
 
 ![CV](https://img.shields.io/badge/CV-Object_Detection-blue.svg) 
 
@@ -39,7 +39,7 @@ Some of the test images are given below.
 
 We were able to build a Social Distancing System using OpenCV and YoLo v3 model. Even though it works fairly well, a lot of space is available for improvement. The fps is fairly low in this project but we can increase it using other SOTA techniques.
 
-### Future Scope:
+### Future Scope :
 
 Although this project is cool, it has a few limitations,
   - This project does not take into account the camera perspective.
